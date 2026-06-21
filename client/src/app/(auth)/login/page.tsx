@@ -27,14 +27,14 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
-        <h2 className="text-3xl font-bold text-center mb-8">Welcome Back</h2>
+        <h2 className="text-3xl font-bold text-black text-center mb-8">Welcome Back</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
               required
-              className="mt-1 block w-full border rounded-lg px-4 py-3 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border rounded-lg px-4 py-3 text-black bg-white placeholder:text-gray-500"
               placeholder="admin@example.com"
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
@@ -44,7 +44,7 @@ export default function Login() {
             <input
               type="password"
               required
-              className="mt-1 block w-full border rounded-lg px-4 py-3 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border rounded-lg px-4 py-3 text-black bg-white placeholder:text-gray-500"
               placeholder="••••••••"
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             />
