@@ -10,6 +10,7 @@ interface User {
   role: 'user' | 'admin';
   purchasedCourses: string[];
   purchasedPDFs: string[];
+  profilePhoto?: string;
 }
 
 interface AuthContextType {
