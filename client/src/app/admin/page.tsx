@@ -34,8 +34,7 @@ export default function AdminDashboard() {
     fetchStats();
   }, []);
 
-  if (!stats) return <div>Loading Stats...</div>;
-
+  if (!stats) return <div className="text-black font-bold text-xl">Loading Stats...</div>;
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -52,7 +51,7 @@ export default function AdminDashboard() {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b text-gray-500 uppercase text-xs">
+              <tr className="border-b text-gray-800 font-bold uppercase text-xs">
                 <th className="pb-4">Student</th>
                 <th className="pb-4">Product</th>
                 <th className="pb-4">Amount</th>
@@ -65,7 +64,7 @@ export default function AdminDashboard() {
                 <tr key={payment._id}>
                   <td className="py-4">
                     <p className="font-medium">{payment.user?.name}</p>
-                    <p className="text-xs text-gray-500">{payment.user?.email}</p>
+                    <p className="text-xs text-gray-700 font-medium">{payment.user?.email}</p>
                   </td>
                   <td className="py-4 capitalize">{payment.productType}</td>
                   <td className="py-4 font-bold text-blue-600">₹{payment.amount}</td>
@@ -74,7 +73,7 @@ export default function AdminDashboard() {
                       {payment.status}
                     </span>
                   </td>
-                  <td className="py-4 text-gray-500 text-sm">
+                  <td className="py-4 text-gray-800 font-medium text-sm">
                     {new Date(payment.createdAt).toLocaleDateString()}
                   </td>
                 </tr>
@@ -91,8 +90,8 @@ function StatCard({ title, value, icon, bg }: any) {
   return (
     <div className={`p-6 rounded-2xl border ${bg} flex items-center justify-between`}>
       <div>
-        <p className="text-gray-500 text-sm mb-1">{title}</p>
-        <h3 className="text-3xl font-bold">{value}</h3>
+        <p className="text-gray-900 font-semibold text-sm mb-1">{title}</p>
+        <h3 className="text-3xl font-extrabold text-black">{value}</h3>
       </div>
       <div className="p-3 bg-white rounded-xl shadow-sm">
         {icon}
