@@ -18,7 +18,7 @@ exports.getDashboardStats = async (req, res) => {
     const recentPayments = await Payment.find({ status: 'success' })
       .populate('user', 'name email')
       .sort({ createdAt: -1 })
-      .limit(5);
+     .limit(5);
 
     res.json({
       revenue: totalRevenue[0]?.total || 0,
