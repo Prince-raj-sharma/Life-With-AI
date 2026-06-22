@@ -58,6 +58,17 @@ export default function ManageCurriculum() {
         fetchCourse();
     }
   };
+  const deleteLesson = async (lessonId: string) => {
+    if (confirm('Delete this lesson?')) {
+      try {
+        await api.delete(`/courses/lesson/${lessonId}`);
+        fetchCourse();
+        toast.success('Lesson deleted');
+      } catch (error) {
+        toast.error('Failed to delete lesson');
+      }
+    }
+  };
 
   if (!course) return <div className="p-10">Loading Curriculum...</div>;
 
@@ -104,7 +115,12 @@ export default function ManageCurriculum() {
                         {lesson.isPreview && <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full uppercase font-bold tracking-tighter">Free Preview</span>}
                     </div>
                   </div>
-                  <button className="text-gray-400 hover:text-red-600"><Trash2 size={16}/></button>
+                  <button
+                    onClick={() => deleteLesson(lesson._id)}
+                    className="text-gray-400 hover:text-red-600">
+
+                    <Trash2 size={16}/>
+                  </button>
                 </div>
               ))}
             </div>
